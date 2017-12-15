@@ -1,0 +1,13 @@
+sharpie/ruby-demo:
+  Build:
+    - 'source ~/.rvm/scripts/rvm'
+    - 'rvm install ruby-2.4.1 || true'
+    - 'rvm use 2.4.1'
+    - 'gem install r10k'
+    - 'gem install bundler'
+    - 'r10k puppetfile install --verbose'
+    - 'bundle package --all'
+  PkgInclude:
+    - '*'
+  PkgExclude:
+    - '.bundle/'
