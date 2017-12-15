@@ -11,3 +11,9 @@ sharpie/ruby-demo:
     - '*'
   PkgExclude:
     - '.bundle/'
+  PostInstall:
+    - 'sudo -E /opt/puppetlabs/bin/puppet apply --verbose --modulepath modules config.pp'
+  Start:
+    - sudo systemctl restart demo-app
+  Terminate:
+    - sudo systemctl stop demo-app
